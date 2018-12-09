@@ -5,7 +5,8 @@ from mock import patch
 from functions_to_test_using_mock_or_monkey import (
     func,
     func_get,
-    execute_operations
+    execute_operations,
+    func_throwing_up
 )
 
 
@@ -78,3 +79,8 @@ def test_execute_operations():
     rc = execute_operations(operation_mock, 5, 3)
     assert rc == 123
     operation_mock.sub.assert_called_with(5, 3)
+
+
+def test_throwing_up():
+    with pytest.raises(ValueError, match="Bad bad bad") as err:
+        func_throwing_up()

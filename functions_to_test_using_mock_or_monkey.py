@@ -43,4 +43,10 @@ def execute_operations(op, v1, v2):
     return op.add(v1, v2)
 
 
+def func_throwing_up():
+    try:
+        val = 100/0
+    except ZeroDivisionError:
+        raise ValueError('Bad bad bad')
+
 
